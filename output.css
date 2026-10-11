@@ -60,6 +60,7 @@ html[data-theme="light"] .core-initials{background-image:linear-gradient(135deg,
 html[data-theme="light"] .core-caption{color:#45648d}
 
 /* Visibility and responsive refinements */
+.hero-core{position:relative;z-index:1}.bot-symbol,.nlp-word{position:relative;z-index:1}
 .button-primary{background:#2563c4;color:#fff}.button-primary:hover{background:#1d52a6}
 .contact-form input::placeholder,.contact-form textarea::placeholder{color:#8b9ab0;opacity:1}
 html[data-theme="light"] .contact-form input::placeholder,html[data-theme="light"] .contact-form textarea::placeholder{color:#536580}
