@@ -259,3 +259,13 @@ html{scroll-padding-top:calc(var(--header-height) + 20px)}
 }
 
 .hero-socials{margin-top:16px;font-size:12px;gap:12px 20px}.hero-socials a{font-weight:600;min-height:44px}
+
+/* Hotel analytics illustration: shared geometry, theme-aware palette. */
+.visual-hotel{--hotel-fill:#142b47;--hotel-card:#0e1e33;--hotel-grid:#29415f;--hotel-window:#75b8ff;--hotel-ground:#1a3152}
+.hotel-illustration{height:100%;width:min(100%,360px);color:var(--blue)}
+.hotel-building{fill:var(--hotel-fill);stroke:currentColor;stroke-width:2}
+.hotel-outline{stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hotel-windows{fill:var(--hotel-window)}.hotel-door{fill:var(--hotel-card);stroke:currentColor;stroke-width:2}
+.hotel-ground{fill:var(--hotel-ground)}.hotel-dashboard{fill:var(--hotel-card);stroke:currentColor;stroke-width:1.5}
+.hotel-grid{stroke:var(--hotel-grid);stroke-width:1}.hotel-trend{stroke:var(--cyan);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.hotel-point{fill:var(--cyan);stroke:var(--hotel-card);stroke-width:2}
+html[data-theme="light"] .visual-hotel{--hotel-fill:#d9e8fb;--hotel-card:#fff;--hotel-grid:#d4e1f2;--hotel-window:#245fbd;--hotel-ground:#cddff6}
