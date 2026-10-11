@@ -127,6 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
+    const closeMenu = (restoreFocus = false) => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', menuLabel(false));
+      links.classList.remove('is-open');
+      if (restoreFocus) toggle.focus();
+    };
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
@@ -134,10 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
       links.classList.toggle('is-open', !open);
     });
     links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', menuLabel(false));
-      links.classList.remove('is-open');
+      closeMenu();
     }));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') closeMenu(true);
+    });
+    document.addEventListener('click', event => {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !links.contains(event.target) && !toggle.contains(event.target)) closeMenu();
+    });
+    window.matchMedia('(min-width: 901px)').addEventListener('change', event => {
+      if (event.matches) closeMenu();
+    });
   }
   const form = document.querySelector('#contact-form');
   form?.addEventListener('submit', event => {
