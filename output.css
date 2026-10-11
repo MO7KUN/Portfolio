@@ -118,3 +118,19 @@ html[lang="ar"] [dir="ltr"]{unicode-bidi:isolate;text-align:left}
 .project-card>p,.github-project-card p{min-height:0}
 @media(max-width:900px){html[lang="ar"] .nav-links{gap:16px}html[lang="ar"] .brand{font-size:11px}}
 @media(max-width:600px){html[lang="ar"] .hero h1{font-size:clamp(34px,9vw,48px)}html[lang="ar"] .section-heading h2,html[lang="ar"] .contact-copy h2{font-size:32px}html[lang="ar"] .hero-lead,html[lang="ar"] .about-copy{font-size:14px}html[lang="ar"] .hero-meta{font-size:11px;gap:8px}html[lang="ar"] .email-link{font-size:12px}html[lang="ar"] .footer-inner{gap:16px}}
+
+/* French copy needs room for longer words and labels at every breakpoint. */
+html[lang="fr"] .hero h1{font-size:clamp(38px,4.5vw,62px);line-height:1.18;letter-spacing:-.04em}
+html[lang="fr"] :is(.section-heading h2,.contact-copy h2){font-size:clamp(30px,3.7vw,48px);line-height:1.25;overflow-wrap:anywhere}
+html[lang="fr"] :is(.project-card h3,.github-project-card h4,.timeline-content h3,.education-item h4){overflow-wrap:anywhere;line-height:1.5}
+html[lang="fr"] :is(.hero-lead,.about-copy,.project-card>p,.github-project-card p,.timeline-content p){hyphens:auto}
+html[lang="fr"] .hero-meta{flex-wrap:wrap;gap:10px 22px}
+html[lang="fr"] .nav-links{gap:20px;font-size:12px}
+html[lang="fr"] .signal-inner{flex-wrap:wrap;gap:12px 22px;letter-spacing:.04em}
+html[lang="fr"] .project-top{gap:12px;align-items:flex-start}
+html[lang="fr"] .visual-tag{font-size:9px;letter-spacing:.08em;max-width:95%;white-space:normal}
+html[lang="fr"] .github-projects-header{gap:18px;flex-wrap:wrap}
+html[lang="fr"] .github-project-meta{gap:8px 12px;flex-wrap:wrap}
+html[lang="fr"] .github-project-top{gap:10px}
+html[lang="fr"] .github-project-top a{flex-shrink:0}
+@media(max-width:600px){html[lang="fr"] .hero h1{font-size:clamp(34px,9vw,48px)}html[lang="fr"] .hero-meta{font-size:9px}html[lang="fr"] .section-heading{gap:16px}html[lang="fr"] .section-note{max-width:100%;white-space:normal}html[lang="fr"] .footer-inner{gap:16px}}
