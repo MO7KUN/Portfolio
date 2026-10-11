@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b12">
+  <script>
+    (() => {
+      let saved;
+      try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+      const theme = saved === 'light' || saved === 'dark' ? saved : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#080b12' : '#f7f9fd';
+    })();
+  </script>
   <meta name="description" content="Mohamed Laaribi — AI and machine learning engineer, data engineering enthusiast, and full-stack developer based in Morocco.">
   <meta property="og:title" content="Mohamed Laaribi — AI / ML Engineer">
   <meta property="og:description" content="Building intelligent systems and useful digital products.">
@@ -22,6 +31,7 @@
     <nav class="nav wrap" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Mohamed Laaribi, home"><span class="brand-mark">ML</span><span>MOHAMED LAARIBI<span class="brand-dot">.</span></span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode"><span class="theme-icon" aria-hidden="true">☀</span><span class="theme-label">Light</span></button>
       <div class="nav-links" id="nav-links"><a href="#about" data-i18n="navAbout">About</a><a href="#work" data-i18n="navWork">Work</a><a href="#experience" data-i18n="navExperience">Experience</a><a href="#education" data-i18n="navEducation">Education</a><a href="#contact" class="nav-contact"><span data-i18n="navContact">Let's talk</span> <span aria-hidden="true">↗</span></a><div class="language-switcher" role="group" aria-label="Language selector"><button type="button" class="language-button is-active" data-language="en" aria-pressed="true">EN</button><button type="button" class="language-button" data-language="fr" aria-pressed="false">FR</button><button type="button" class="language-button" data-language="ar" aria-pressed="false">AR</button></div></div>
     </nav>
   </header>

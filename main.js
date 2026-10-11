@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+  let preferredTheme;
+  try { preferredTheme = localStorage.getItem('portfolio-theme'); } catch {}
+  const themeCopy = {
+    en: { light: 'Light', dark: 'Dark', label: 'Dark mode', toLight: 'Switch to light mode', toDark: 'Switch to dark mode' },
+    fr: { light: 'Clair', dark: 'Sombre', label: 'Mode sombre', toLight: 'Passer en mode clair', toDark: 'Passer en mode sombre' },
+    ar: { light: 'فاتح', dark: 'داكن', label: 'الوضع الداكن', toLight: 'التبديل إلى الوضع الفاتح', toDark: 'التبديل إلى الوضع الداكن' }
+  };
+  const applyTheme = theme => {
+    const dark = theme === 'dark';
+    document.documentElement.dataset.theme = theme;
+    const copy = themeCopy[document.documentElement.lang] || themeCopy.en;
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(dark));
+      themeToggle.setAttribute('aria-label', copy.label);
+      themeToggle.title = dark ? copy.toLight : copy.toDark;
+      themeToggle.querySelector('.theme-icon').textContent = dark ? '☾' : '☀';
+      themeToggle.querySelector('.theme-label').textContent = copy[theme];
+    }
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = dark ? '#080b12' : '#f7f9fd';
+  };
+  applyTheme(document.documentElement.dataset.theme || (systemTheme.matches ? 'dark' : 'light'));
+  themeToggle?.addEventListener('click', () => {
+    preferredTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(preferredTheme);
+    try { localStorage.setItem('portfolio-theme', preferredTheme); } catch {}
+  });
+  systemTheme.addEventListener('change', event => {
+    if (preferredTheme !== 'light' && preferredTheme !== 'dark') applyTheme(event.matches ? 'dark' : 'light');
+  });
   const translations = {
     en: {
       navAbout: 'About', navWork: 'Work', navExperience: 'Experience', navEducation: 'Education', navContact: "Let's talk",
@@ -46,10 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    localStorage.setItem('portfolio-language', language);
+    try { localStorage.setItem('portfolio-language', language); } catch {}
+    applyTheme(document.documentElement.dataset.theme);
   };
   languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
-  const savedLanguage = localStorage.getItem('portfolio-language');
+  let savedLanguage;
+  try { savedLanguage = localStorage.getItem('portfolio-language'); } catch {}
   if (savedLanguage && translations[savedLanguage]) setLanguage(savedLanguage);
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
