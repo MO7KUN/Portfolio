@@ -203,10 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     };
-    const repositoryFrench = {"Hotel-Price-Prediction-and-Tourism-Analytics": ["Prévision des prix hôteliers et analyse du tourisme", "Étude des prix des chambres par apprentissage automatique, regroupement des hôtels et tableau de bord interactif d’analyse touristique."], "mohamed-laaribi-portfolio": ["Mon portfolio", "Mon site personnel : projets, expérience, compétences et coordonnées."], "Cold-Family-Feud": ["Jeu de défis en famille", "Un jeu de défis en famille adapté aux téléphones, avec des boutons de réponse interactifs pour les participants."], "PFE-E-Sahara": ["Projet de fin d’études — E-Sahara", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "Direction-Provinciale-GRH": ["Gestion des ressources humaines de la direction provinciale", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "Library-Management-Systeme": ["Gestion de bibliothèque", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "PDS": ["Projet PDS", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "minter-dapp": ["Application décentralisée de création de jetons", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "MO7KUN": ["Mon profil GitHub", "Fichiers de configuration de mon profil GitHub."]};
+    const repositoryFrench = {"Hotel-Price-Prediction-and-Tourism-Analytics": ["Prévision des prix hôteliers et analyse du tourisme", "Étude des prix des chambres par apprentissage automatique, regroupement des hôtels et tableau de bord interactif d’analyse touristique."], "Portfolio": ["Mon portfolio", "Mon site personnel : projets, expérience, compétences et coordonnées."], "Cold-Family-Feud": ["Jeu de défis en famille", "Un jeu de défis en famille adapté aux téléphones, avec des boutons de réponse interactifs pour les participants."], "PFE-E-Sahara": ["Projet de fin d’études — E-Sahara", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "Direction-Provinciale-GRH": ["Gestion des ressources humaines de la direction provinciale", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "Library-Management-Systeme": ["Gestion de bibliothèque", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "PDS": ["Projet PDS", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "minter-dapp": ["Application décentralisée de création de jetons", "Consultez les fichiers et les détails du projet dans son dépôt GitHub."], "MO7KUN": ["Mon profil GitHub", "Fichiers de configuration de mon profil GitHub."]};
     const repositoryArabic = {
       'Hotel-Price-Prediction-and-Tourism-Analytics': ['توقّع أسعار الفنادق وتحليل السياحة', 'دراسة لأسعار غرف الفنادق باستخدام نماذج التعلّم الآلي، وتجميع الفنادق، ولوحة تفاعلية لتحليل السياحة.'],
-      'mohamed-laaribi-portfolio': ['موقعي الشخصي', 'موقع يعرض مشاريعي وخبرتي ومهاراتي ووسائل التواصل معي.'],
+      'Portfolio': ['موقعي الشخصي', 'موقع يعرض مشاريعي وخبرتي ومهاراتي ووسائل التواصل معي.'],
       'Cold-Family-Feud': ['لعبة التحدي العائلي', 'لعبة تحدٍّ عائلي متوافقة مع الهواتف، تتضمن أزراراً تفاعلية للمشاركين.'],
       'PFE-E-Sahara': ['مشروع نهاية الدراسة — الصحراء الإلكترونية', 'استكشف ملفات المشروع وتفاصيله في المستودع على غيت هاب.'],
       'Direction-Provinciale-GRH': ['إدارة الموارد البشرية بالمديرية الإقليمية', 'استكشف ملفات المشروع وتفاصيله في المستودع على غيت هاب.'],
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let repositoryData = null;
     let repositoryError = false;
     let cachedAt = 0;
-    const cacheKey = 'portfolio-public-repositories-v1';
+    const cacheKey = 'portfolio-public-repositories-v2';
     try {
       const cached = JSON.parse(sessionStorage.getItem(cacheKey) || 'null');
       if (cached && Array.isArray(cached.repositories) && cached.repositories.every(repo => typeof repo.name === 'string' && !repo.private && !repo.disabled)) {
