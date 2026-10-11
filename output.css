@@ -157,7 +157,9 @@ html{scroll-padding-top:calc(var(--header-height) + 20px)}
 .learning-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px)}
 .contact-wrap{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(32px,5vw,64px)}
 .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.github-project-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.github-project-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr}
+@media(max-width:900px){.github-project-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}}
+@media(max-width:600px){.github-project-grid{grid-template-columns:minmax(0,1fr)}}
 .github-projects-header{flex-wrap:wrap;gap:16px}
 .github-projects-header>a,.tags a,.social-links a{display:inline-flex;align-items:center;min-height:44px}
 .github-project-card h4{text-transform:none}
