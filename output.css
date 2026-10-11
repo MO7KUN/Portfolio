@@ -257,3 +257,5 @@ html{scroll-padding-top:calc(var(--header-height) + 20px)}
  .hero-core{width:100px;height:100px}
  .hero h1{font-size:clamp(34px,6vw,48px)}
 }
+
+.hero-socials{margin-top:16px;font-size:12px;gap:12px 20px}.hero-socials a{font-weight:600;min-height:44px}
