@@ -27,6 +27,7 @@ html[data-theme="light"] :is(.tags a,.github-projects-header>a,.github-project-t
 html[data-theme="light"] :is(.skill-list span,.language-switcher){background:#e0e9f6;border-color:#bfcee2;color:#314b70}
 html[data-theme="light"] .language-button{color:#415b80}
 html[data-theme="light"] .language-button.is-active{background:#255faf;color:#fff}
+html[data-theme="light"] .language-button.is-active:hover{background:#1d52a6;color:#fff}
 html[data-theme="light"] .cert-list li{color:#324d71}
 html[data-theme="light"] .contact-section{background:radial-gradient(ellipse at 13% 60%,#e0ebfc,#f7f9fd 65%)}
 html[data-theme="light"] .email-link{color:#205cae}
